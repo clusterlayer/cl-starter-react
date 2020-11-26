@@ -1,18 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { createUseStyles } from "react-jss";
 
-import Sidebar from "./Sidebar";
-import Container from "./Container";
+import Topbar from "./Topbar";
+import Wrapper from "./Wrapper";
+
+
+const useStyles = createUseStyles({
+    app: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column"
+    }
+});
+
 
 export default function App() {
+    const styles = useStyles();
+    
     return <Router>
-        <div
-            style={{
-                display: "flex"
-            }}
-        >
-            <Sidebar/>
-            <Container/>
-        </div>
+        <Route path="/:section?" render={props => <div className={styles["app"]}>
+            <Topbar {...props}/>
+            <Wrapper {...props}/>
+        </div>}/>
     </Router>;
 }

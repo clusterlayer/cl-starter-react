@@ -1,32 +1,12 @@
-import {
-    Switch,
-    Route,
-    useRouteMatch,
-    Link,
-} from "react-router-dom";
-
-import List from "./List";
-import Form from "./Form";
-
-
 export default function Project() {
-    let match = useRouteMatch();
-    return <div
-        style={{
-            display: "flex"
-        }}
-    >
+    return <div>
         <div>
-            <ul>
-                <li><Link to="/projects">List</Link></li>
-                <li><Link to="/projects/create">Create</Link></li>
-            </ul>
+            <h2>Projects</h2>
         </div>
         <div>
-            <Switch>
-                <Route path={`${match.path}/create`} component={Form}/>
-                <Route path={match.path} component={List}/>
-            </Switch>
+            <ul>
+                <li>Item 1</li>
+            </ul>
         </div>
     </div>;
 }
