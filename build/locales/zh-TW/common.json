@@ -1,0 +1,12 @@
+{
+    "topbar": {
+        "appName": "React 應用"
+    },
+    "sidebar": {
+        "items": {
+            "home": "主頁",
+            "projects": "專案",
+            "members": "會員"
+        }
+    }
+}

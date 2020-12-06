@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 
@@ -18,10 +18,12 @@ const useStyles = createUseStyles({
 export default function App() {
     const styles = useStyles();
     
-    return <Router>
-        <Route path="/:section?" render={props => <div className={styles["app"]}>
-            <Topbar {...props}/>
-            <Wrapper {...props}/>
-        </div>}/>
-    </Router>;
+    return <Suspense fallback="loading">
+        <Router>
+            <Route path="/:section?" render={props => <div className={styles["app"]}>
+                <Topbar {...props}/>
+                <Wrapper {...props}/>
+            </div>}/>
+        </Router>
+    </Suspense>;
 }

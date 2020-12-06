@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import { useTranslation } from "react-i18next";
 
 
 const useStyles = createUseStyles({
@@ -32,27 +33,28 @@ const useStyles = createUseStyles({
 const listItems = [
     {
         link: "/",
-        label: "Home"
+        label: "home"
     },
     {
         link: "/projects",
-        label: "Projects"
+        label: "projects"
     },
     {
         link: "/members",
-        label: "Members"
+        label: "members"
     }
 ];
 
 
 export default function Sidebar(props) {
     const styles = useStyles();
+    const { t } = useTranslation();
     const section = props.match.params.section || "";
 
     return <div className={styles["sidebar"]}>
         <ul className={styles["list"]}>
             {listItems.map((item, idx) => <li key={`item-${idx}`} className={styles["listItem"]}>
-                <Link to={item.link} className={(`/${section}` === item.link ? styles["active"] : "")}>{item.label}</Link>
+                <Link to={item.link} className={(`/${section}` === item.link ? styles["active"] : "")}>{t(`sidebar.items.${item.label}`)}</Link>
             </li>)}
         </ul>
     </div>;

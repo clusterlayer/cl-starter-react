@@ -1,0 +1,12 @@
+{
+    "topbar": {
+        "appName": "React App"
+    },
+    "sidebar": {
+        "items": {
+            "home": "Home",
+            "projects": "Projects",
+            "members": "Members"
+        }
+    }
+}

@@ -9,7 +9,8 @@ import Member from "../Member/Index";
 
 const useStyles = createUseStyles({
     container: {
-        flex: 1
+        flex: 1,
+        padding: 20
     }
 });
 
